@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloxd.io Resource Hub</title>
+    <style>
+        :root {
+            --primary: #5865f2;
+            --glow: rgba(88, 101, 242, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://media.discordapp.net/attachments/1320015214862663721/1363957230604517397/IMG_9512.jpeg?ex=6807eba8&is=68069a28&hm=2b954d492df8e8364fe446213e75a5810bde630c1c5e6b9c7f419de80cbc64e3&=&format=webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            cursor: none;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 0;
+            cursor: none;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 3rem 1rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-in-out;
+            cursor: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px var(--primary);
+            cursor: none;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-out;
+            text-shadow: 0 0 10px var(--primary);
+            cursor: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #5865f2, #4752c4);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 0 0 25px var(--glow), 0 0 10px #5865f2;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.2s ease-out;
+            cursor: none;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #4752c4, #3a3fbc);
+            transform: scale(1.08);
+            box-shadow: 0 0 35px var(--glow), 0 0 15px #5865f2;
+            cursor: none;
+        }
+
+        footer {
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #bbb;
+            animation: fadeIn 2s ease-in;
+            cursor: none;
+        }
+
+        .glow-bg {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--glow);
+            filter: blur(100px);
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+            cursor: none;
+        }
+
+        .glow1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -10%;
+            cursor: none;
+        }
+
+        .glow2 {
+            width: 400px;
+            height: 400px;
+            bottom: -10%;
+            right: -15%;
+            cursor: none;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        img {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            cursor: none;
+        }
+
+        #about {
+            margin-top: 10px;
+            cursor: none;
+        }
+
+        #circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 5px solid white;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: scale(1);
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="glow-bg glow1"></div>
+    <div class="glow-bg glow2"></div>
+
+    <div class="container">
+        <h1>Bloxd.io Resource Hub</h1>
+        <p id="description">Loading member count...</p>
+        <button class="btn" onclick="joinDiscord()">Join Now</button>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Our goal is to grow the Bloxd community with public resources to start a server, learn PvP, or even make new friends.</p>
+            <p>One of the many perks of being in our server is code resources, we have tons of code for you to try out!</p>
+            <img src="https://media.discordapp.net/attachments/1334995769517932555/1342456507807043704/image_11.webp?ex=680824cd&is=6806d34d&hm=32bc0f6ea0f8f1064e83b5d52818b8953ec343650d282f9d53bcb2a78cce02c9&=&format=webp" alt="Code Resources">
+            <p>We also share leaked updates on Bloxd before they are released!</p>
+            <img src="https://media.discordapp.net/attachments/1320013850308907090/1344384621533593742/Screenshot_2025-02-26_165006.png?ex=6807e83f&is=680696bf&hm=5899efa14612dbcb9e0d9c7e1b5dcc8a6d593de4e6ee99e83519eff34ddd7d12&=&format=webp&quality=lossless&width=747&height=701" alt="Leaked Updates">
+            <p>Join us today!</p>
+        </section>
+
+        <footer>
+            <p>© 2025 Bloxd.io Resource Hub</p>
+        </footer>
+    </div>
+
+    <div id="circle"></div>
+
+    <script>
+        function joinDiscord() {
+            window.open("https://discord.gg/mJ3SQzMgfA", "_blank");
+        }
+
+        fetch('https://discord.com/api/guilds/1318248616141262940/widget.json')
+            .then(response => response.json())
+            .then(data => {
+                const memberCount = data.presence_count;
+                const description = document.getElementById('description');
+                description.textContent = `Join our server with ${memberCount} online members! Your go-to place for sharing code, getting help, and building better worlds in Bloxd.io. No spam, just smart tools and a great community.`;
+            })
+            .catch(error => {
+                console.error('Error fetching member count:', error);
+            });
+
+        const isMobile = window.innerWidth <= 768;
+
+        if (!isMobile) {
+            const circle = document.getElementById('circle');
+            let mouseX = 0, mouseY = 0; 
+            let circleX = 0, circleY = 0; 
+            const speed = 0.1;
+
+            function updateCircle() {
+                circleX += (mouseX - circleX) * speed;
+                circleY += (mouseY - circleY) * speed;
+
+                circle.style.left = circleX + 'px';
+                circle.style.top = circleY + 'px';
+                requestAnimationFrame(updateCircle);
+            }
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = event.clientX + window.scrollX - 25;
+                mouseY = event.clientY + window.scrollY - 25;
+            });
+
+            document.addEventListener('mousedown', () => {
+                circle.style.transform = 'scale(0.5)';
+            });
+
+            document.addEventListener('mouseup', () => {
+                circle.style.transform = 'scale(1)';
+            });
+
+            updateCircle();
+        }
+    </script>
+</body>
+</html>
